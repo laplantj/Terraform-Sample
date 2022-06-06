@@ -1,13 +1,17 @@
-resource "aws_instance" "myawsserver" {
-  ami = "ami-0603cbe34fd08cb81"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "Techlanders-aws-ec2-instance-v4"
-    Env = "Dev"
-  }
+provider "aws" {
+  region = "us-east-2"
 }
 
-output "myawsserver-ip" {
-  value = "${aws_instance.myawsserver.public_ip}"
+variable "hw" {
+type = string
+default = "t2.nano"
+}
+
+resource "aws_instance" "myawsserver1" {
+  ami = "ami-0603cbe34fd08cb81"
+  instance_type = var.hw
+  tags = {
+    Name = "gagan-vm1"
+    Env = "Dev"
+  }
 }
