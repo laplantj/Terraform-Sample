@@ -11,7 +11,7 @@ resource "aws_instance" "myawsserver1" {
   ami = "ami-0603cbe34fd08cb81"
   instance_type = var.hw
   tags = {
-    Name = "josh-vm11-change2"
-    Env = "Test"
+    Name = "josh-vm11-change3"
+    Env = "Prod"
   }
 }
